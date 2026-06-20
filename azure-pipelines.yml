@@ -18,7 +18,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: Default
+      vmImage: weatherapi agent
     steps:
     - task: Docker@2
       inputs:
