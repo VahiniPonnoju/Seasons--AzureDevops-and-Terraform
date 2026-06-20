@@ -13,7 +13,7 @@ COPY . ./
 RUN rm -rf obj bin
 
 # FORCE NO apphost generation issue
-RUN dotnet publish -c Release -o /out \
+RUN dotnet publish weatherapi.csproj -c Release -o /out \
     /p:UseAppHost=false
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
