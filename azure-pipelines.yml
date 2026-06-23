@@ -41,7 +41,8 @@ stages:
     - group: TerraformEnvVars
     steps:
     - script: |
-        Remove-Item -Recurse -Force .terraform
+        echo [%ARM_SUBSCRIPTION_ID%]
+        if exist .terraform rmdir /s /q .terraform
         terraform init -reconfigure -input=false
         terraform validate
         terraform plan 
