@@ -41,11 +41,9 @@ stages:
     - group: TerraformEnvVars
     steps:
     - script: |
-        set -e
-
-        terraform init -inputs=false
-        terraform apply -inputs=false -auto-approve
-      name: "Runterraform"  
+        terraform init 
+        terraform apply -auto-approve
+      name: Runterraform  
       displayName: Run terraform
       env:
         ARM_Client_ID: $(ARM_Client_ID)
