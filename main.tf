@@ -5,20 +5,19 @@ terraform {
       version = "~> 4.0"
     }
   }
-}
-terraform {
-    backend "azurerm" {
-      resource_group_name = "tf_rg"
-      storage_account_name = "tfblobstorageaccount"
-      container_name = "tfstate"
-      key = "terraform.tfstate"
-    }
+
+  backend "azurerm" {
+    resource_group_name = "tf_rg"
+    storage_account_name = "tfblobstorageaccount"
+    container_name = "tfstate"
+    key = "terraform.tfstate"
+  }
 }
 provider "azurerm" {
   features {}
 }
 resource "azurerm_resource_group" "tf_test" {
-  location = "UKsouth"
+  location = "UK South"
   name = "tf_rg"
 }
 resource "azurerm_container_group" "tfcg_test" {
