@@ -41,7 +41,7 @@ stages:
     - group: TerraformEnvVars
     steps:
     - script: |
-        terraform init 
+        terraform init -reconfigure 
         terraform apply -auto-approve
       name: Runterraform  
       displayName: Run terraform
