@@ -51,7 +51,7 @@ stages:
       name: Runterraform  
       displayName: Run terraform
       env:
-        ARM_Client_ID: $(ARM_Client_ID)
-        ARM_Tenant_id: $(ARM_Tenant_id) 
-        ARM_Client_secret: $(ARM_Client_secret)
-        ARM_subscription_ID: $(ARM_subscription_ID)
+        ARM_ClIENT_ID: $(ARM_Client_ID)
+        ARM_TENANT_ID: $(ARM_Tenant_id) 
+        ARM_CLIENT_SECRET: $(ARM_Client_secret)
+        ARM_SUBSCRIPTION_ID: $(ARM_subscription_ID)
