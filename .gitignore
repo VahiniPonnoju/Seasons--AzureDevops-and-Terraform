@@ -7,6 +7,12 @@ project.lock.json
 # Visual Studio Code
 .vscode
 
+# Azure DevOps Agent
+agent/
+agent2/
+_work/
+externals/
+
 # User-specific files
 *.suo
 *.user
@@ -41,3 +47,4 @@ msbuild.wrn
 
 # Terraform
 .terraform
+terraform_1.15.6_windows_amd64/

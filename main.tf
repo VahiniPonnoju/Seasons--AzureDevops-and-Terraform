@@ -6,7 +6,14 @@ terraform {
     }
   }
 }
-
+terraform {
+    backend "azurerm" {
+      resource_group_name = "tf_rg"
+      storage_account_name = "tfblobstorageaccount"
+      container_name = "tfstate"
+      key = "terraform.tfstate"
+    }
+}
 provider "azurerm" {
   features {}
 }

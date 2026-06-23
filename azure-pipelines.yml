@@ -29,3 +29,26 @@ stages:
         Dockerfile: '**/Dockerfile'
         tags: |
           $(Build.BuildId)
+- stage: Provision
+  displayName: "Terraforming on Azure"
+  dependsOn: Build
+  jobs:
+  - job: Provision
+    displayName: "Provisioning container Instance"
+    pool:
+      vmImage: weatherapi agent
+    variables:
+    - group: TerraformEnvVars
+    steps:
+    - script:|
+        set -e
+
+        terraform init -inputs=false
+        terraform apply -inputs=false -auto-approve
+      name: "Runterraform"  
+      displayName: "Run terraform"
+      env:
+        ARM_Client_ID: $(ARM_Client_ID)
+        ARM_Tenant_id: $(ARM_Tenant_id) 
+        ARM_Client_secret: $(ARM_Client_secret)
+        ARM_subscription_ID: $(ARM_subscription_ID)
