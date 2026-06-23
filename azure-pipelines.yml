@@ -41,7 +41,8 @@ stages:
     - group: TerraformEnvVars
     steps:
     - script: |
-        echo [%ARM_SUBSCRIPTION_ID%]
+        echo Subscription=[%ARM_SUBSCRIPTION_ID%]
+        echo Tenant=[%ARM_TENANT_ID%]
         if exist .terraform rmdir /s /q .terraform
         terraform init -reconfigure -input=false
         terraform validate
