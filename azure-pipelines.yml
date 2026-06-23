@@ -41,7 +41,7 @@ stages:
     - group: TerraformEnvVars
     steps:
     - script: |
-        rm -rf .terraform
+        Remove-Item -Recurse -Force .terraform
         terraform init -reconfigure -input=false
         terraform validate
         terraform plan 
