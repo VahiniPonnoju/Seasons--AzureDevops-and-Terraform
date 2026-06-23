@@ -36,17 +36,17 @@ stages:
   - job: Provision
     displayName: "Provisioning container Instance"
     pool:
-      vmImage: weatherapi agent
+      name: weatherapi agent
     variables:
     - group: TerraformEnvVars
     steps:
-    - script:|
+    - script: |
         set -e
 
         terraform init -inputs=false
         terraform apply -inputs=false -auto-approve
       name: "Runterraform"  
-      displayName: "Run terraform"
+      displayName: Run terraform
       env:
         ARM_Client_ID: $(ARM_Client_ID)
         ARM_Tenant_id: $(ARM_Tenant_id) 
