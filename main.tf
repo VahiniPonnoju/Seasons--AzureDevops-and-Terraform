@@ -34,7 +34,7 @@ resource "azurerm_container_group" "tfcg_test" {
 
   container {
     name   = "weatherapi"
-    image  = "mcr.microsoft.com/azuredocs/aci-helloworld"
+    image  = "vahiniponnoju/weatherapi:${var.imagebuild}"
 
     cpu    = 1
     memory = 1.5
