@@ -47,4 +47,5 @@ msbuild.wrn
 
 # Terraform
 .terraform
+.terraform.lock.hcl
 terraform_1.15.6_windows_amd64/

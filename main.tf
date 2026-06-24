@@ -26,12 +26,12 @@ resource "azurerm_container_group" "tfcg_test" {
   resource_group_name = azurerm_resource_group.tf_test.name
 
   ip_address_type = "Public"
-  dns_name_label  = "binarythistlewa"
+  dns_name_label  = "weatherapi-${random_id}"
   os_type         = "Linux"
 
   container {
     name   = "weatherapi"
-    image  = "nginx:latest"
+    image  = "mcr.microsoft.com/azuredocs/aci-helloworld"
 
     cpu    = 1
     memory = 1.5
@@ -39,6 +39,9 @@ resource "azurerm_container_group" "tfcg_test" {
     ports {
       port     = 80
       protocol = "TCP"
+    }
+    timeouts {
+    create = "30m"
     }
   }
 }
