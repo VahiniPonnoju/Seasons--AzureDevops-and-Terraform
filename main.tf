@@ -23,6 +23,10 @@ resource "azurerm_resource_group" "tf_test" {
 resource "random_id" "suffix" {
   byte_length = 4
 }
+variable "imagebuild" {
+  type        = string
+  description = "Latest Image Build"
+}
 resource "azurerm_container_group" "tfcg_test" {
   name                = "weatherapi"
   location            = azurerm_resource_group.tf_test.location
