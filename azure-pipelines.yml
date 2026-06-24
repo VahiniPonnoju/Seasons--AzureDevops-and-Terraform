@@ -44,8 +44,8 @@ stages:
         if (Test-Path .terraform) {
             Remove-Item .terraform -Recurse -Force
         }
-        echo Subscription=[%ARM_SUBSCRIPTION_ID%]
-        echo Tenant=[%ARM_TENANT_ID%]
+        echo "Subscription=$env:ARM_SUBSCRIPTION_ID"
+        echo "Tenant=$env:ARM_TENANT_ID"
         terraform init -reconfigure ^
           -backend-config="resource_group_name=tf_rg" ^
           -backend-config="storage_account_name=tfblobstorageaccount" ^
