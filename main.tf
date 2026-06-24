@@ -43,8 +43,5 @@ resource "azurerm_container_group" "tfcg_test" {
       port     = 80
       protocol = "TCP"
     }
-    timeouts {
-    create = "30m"
-    }
   }
 }
