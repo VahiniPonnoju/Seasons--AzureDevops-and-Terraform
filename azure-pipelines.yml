@@ -46,10 +46,10 @@ stages:
         }
         echo "Subscription=$env:ARM_SUBSCRIPTION_ID"
         echo "Tenant=$env:ARM_TENANT_ID"
-        terraform init -reconfigure ^
-          -backend-config="resource_group_name=tf_rg" ^
-          -backend-config="storage_account_name=tfblobstorageaccount" ^
-          -backend-config="container_name=tfstate" ^
+        terraform init -reconfigure `
+          -backend-config="resource_group_name=tf_rg" `
+          -backend-config="storage_account_name=tfblobstorageaccount" `
+          -backend-config="container_name=tfstate" `
           -backend-config="key=terraform.tfstate"
         terraform validate
         terraform plan 
