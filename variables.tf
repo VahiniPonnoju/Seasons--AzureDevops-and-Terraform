@@ -1,0 +1,3 @@
+variable "imagebuild" {
+  type        = string
+}
