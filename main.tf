@@ -20,13 +20,16 @@ resource "azurerm_resource_group" "tf_test" {
   location = "UK South"
   name = "tf_rg"
 }
+resource "random_id" "suffix" {
+  byte_length = 4
+}
 resource "azurerm_container_group" "tfcg_test" {
   name                = "weatherapi"
   location            = azurerm_resource_group.tf_test.location
   resource_group_name = azurerm_resource_group.tf_test.name
 
   ip_address_type = "Public"
-  dns_name_label  = "weatherapi-${random_id}"
+  dns_name_label  = "weatherapi-${random_id.suffix.hex}"
   os_type         = "Linux"
 
   container {
