@@ -29,8 +29,7 @@ resource "random_id" "suffix" {
 }
 variable "imagebuild" {
   type        = string
-  description = "Latest Image Build"
-}
+  }
 resource "azurerm_container_group" "tfcg_test" {
   name                = "weatherapi"
   location            = azurerm_resource_group.tf_test.location
