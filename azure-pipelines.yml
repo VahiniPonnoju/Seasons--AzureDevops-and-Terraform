@@ -46,7 +46,6 @@ stages:
         }
         echo Subscription=[%ARM_SUBSCRIPTION_ID%]
         echo Tenant=[%ARM_TENANT_ID%]
-        if exist .terraform rmdir /s /q .terraform
         terraform init -reconfigure ^
           -backend-config="resource_group_name=tf_rg" ^
           -backend-config="storage_account_name=tfblobstorageaccount" ^
@@ -54,7 +53,7 @@ stages:
           -backend-config="key=terraform.tfstate"
         terraform validate
         terraform plan 
-        terraform apply -auto-approve
+        terraform apply -auto-approve -var="imagebuild=latest"
       name: Runterraform  
       displayName: Run terraform
       env:
