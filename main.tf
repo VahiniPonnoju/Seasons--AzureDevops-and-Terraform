@@ -42,7 +42,7 @@ resource "azurerm_container_group" "tfcg_test" {
     cpu    = 1
     memory = 1.5
     ports {
-      port     = 5000
+      port     = 80
       protocol = "TCP"
     }
   }
